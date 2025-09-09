@@ -7,7 +7,11 @@ Simple high-level enough, with common/utils procedures, better usages in game pr
 - Easy to implement
 - High level, easy to use
 - Work well with other math libary
-- Utils for game/graphics programming
+- Utils for game programming. And only good for game math. No redundant procedures that only use with graphics.
+    - Sometimes to times, we will see game and graphics use the same procedures, but not always
+    - Some graphics optimize tricks will be use different data structures and algorithms
+    - And we must be concerning physics and audio system too
+    - So, I want to only focus to gamedev math in this library, and we have core:math/linalg do this for us
 - Only one way to do thing. Procedure should be short and easy to speak and remember.
     - Eg. Calculate cos only have one procedure cos(), no cos_f32, cos_vec2, ...
     - Eg. Calculate cos of turn may have one procedure tcos(), no tcos_f32, cos_vec2, ...
