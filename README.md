@@ -1,5 +1,5 @@
 # VectorMath for Odin
-Simple high-level enough, with common/utils procedures, better usages in game/graphics programming.
+Simple high-level enough, with common/utils procedures, better usages in game programming.
 
 
 ## Design Goals
@@ -14,7 +14,7 @@ Simple high-level enough, with common/utils procedures, better usages in game/gr
 - Use common names, but not conflict or confusing with existed name for core libaries
 - Written in idiom of Odin (but sometime Odin doesnot force to do it)
 - Low types count, only support u32, i32, f32 components
-- Does not force to must have high performance, simd supports, so you may need use core:math/lnalg (maybe hard to use other than this)
+- Does not force to must have high performance, simd supports, so you may need use core:math/linalg (maybe hard to use other than this)
 
 
 ## Features
@@ -27,10 +27,22 @@ Simple high-level enough, with common/utils procedures, better usages in game/gr
 ## FAQs
 
 ### Why other math libraries?
-- I have used core:math/lnalg (including glsl, hlsl), this may look good from beginning, but you will see its included too many things that not needed, and no usage documents. So I created my self this library for learning, focus on usage purposes only. That how I learn from previous [vector math library](https://github.com/maihd/vectormath.git), its have no usages, only for researching purposes, becoming too much things at time fly.
+- I have used core:math/linalg (including glsl, hlsl), this may look good from beginning, but you will see its included too many things that not needed, and no usage documents. So I created my self this library for learning, focus on usage purposes only. That how I learn from previous [vector math library](https://github.com/maihd/vectormath.git), its have no usages, only for researching purposes, becoming too much things at time fly.
+
+### What procedures, data structures will be supported?
+- Only procedures, datas structures that needed for gamedev. For graphics programming, you will need more procedures, more data structures, use Odin core math libraries. Its' good and performance.
+
+### Some usage, mindset of procedure, data structure are wrong, and Odin offer better features or procedures?
+- I'm still learning, so if you found better approach, use it. 
 
 ### Currently production status?
 - The library focus only how we developer do math in coding, so I focus to design a good interface of it. And we have tmath.h from C standard library. So in the futures, the library only include more procedures, does not change or remove existing procedures. And luckily, Odin core math library have good performance, and included all implementations we need.
 
-### You want your own math library, fit your style?
-- Let do it, copy this file and rename, add or remove as you need. I will do license on this library.
+### I want my own math library, fit my style?
+- Let do it, copy this file and rename, add or remove as you need. I will do no license on this library.
+
+### Where are the versions?
+- Based on the design goals, there are no changing the interfaces of library, no change or remove procedures. So this library no need versioning, rolling release be work as will.
+
+### Contribution, discussions, suggestion to add more procedures?
+- Please do it, create an issue or pull request will be helped!
