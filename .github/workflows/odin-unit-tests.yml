@@ -64,3 +64,33 @@ jobs:
 
       - name: Run Odin unit tests
         run: ./odin-macos-arm64-nightly+2025-09-08/odin test tests
+        
+  # This workflow contains a single job called "build"
+  windows-unit-tests:
+    # The type of runner that the job will run on
+    runs-on: windows-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+
+      - name: Download odin
+        shell: powershell
+        run: Invoke-WebRequest -Uri https://github.com/odin-lang/Odin/releases/download/dev-2025-09/odin-windows-amd64-dev-2025-09.zip -Outfile odin.zip
+
+      - name: Install odin
+        shell: powershell
+        run: Expand-Archive -Path odin.zip -DestinationPath odin
+
+      - name: Checking odin version
+        shell: powershell
+        run: odin\odin.exe version
+
+      - name: Show current folder contents
+        shell: powershell
+        run: dir
+
+      - name: Run Odin unit tests
+        shell: powershell
+        run: odin\odin.exe test tests
