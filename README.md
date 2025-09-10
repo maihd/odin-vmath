@@ -1,4 +1,5 @@
 # VectorMath for Odin Gamedev
+![Github Actions](https://github.com/maihd/odin-vmath/actions/workflows/odin-unit-tests.yml/badge.svg) </br>
 Simple high-level enough, with common/utils procedures, better usages in game programming.
 
 
