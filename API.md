@@ -16,4 +16,6 @@ v4 := vec4(1, 2, 3, 4)
 v4 := vec4(1)
 v4 := vec4(v2, 3, 4)    // assume v2 is Vec2
 v4 := vec4(v3, 4)       // assume v3 is Vec3
+
+// same with ivecx, uvecx, matx
 ```
