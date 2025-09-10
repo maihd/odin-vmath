@@ -36,3 +36,6 @@ jobs:
 
       - name: Show current folder contents
         run: ls -a
+
+      - name: Run Odin unit tests
+        run: ./odin-linux-amd64-nightly+2025-09-08/odin test tests
