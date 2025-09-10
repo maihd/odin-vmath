@@ -3,6 +3,7 @@ package vmath
 import "core:fmt"
 import "core:math"
 import "core:math/linalg"
+import "core:math/linalg/glsl"
 
 Vec2 :: [2]f32
 Vec3 :: [3]f32
@@ -330,3 +331,70 @@ mat4 :: proc {
 	mat4_new1,
 	mat4_new_vec4s,
 }
+
+// ----------------------------------------
+// Procedures from core:math
+// ----------------------------------------
+
+exp :: glsl.exp
+exp2 :: glsl.exp2
+
+min :: glsl.min
+max :: glsl.max
+lerp :: glsl.lerp
+clamp :: glsl.clamp
+
+fract :: glsl.fract
+trunc :: glsl.trunc
+
+ceil :: glsl.ceil
+round :: glsl.round
+floor :: glsl.floor
+
+pow :: glsl.pow
+log :: glsl.log
+log2 :: linalg.log2
+log10 :: linalg.log10
+
+sqrt :: glsl.sqrt
+fsqrt :: glsl.inversesqrt
+
+cos :: glsl.cos
+sin :: glsl.sin
+tan :: glsl.tan
+
+acos :: glsl.acos
+asin :: glsl.asin
+atan :: glsl.atan
+atan2 :: glsl.atan2
+
+cosh :: glsl.cosh
+sinh :: glsl.sinh
+tanh :: glsl.tanh
+
+acosh :: glsl.cosh
+asinh :: glsl.sinh
+atanh :: glsl.tanh
+
+len :: glsl.length
+dist :: glsl.distance
+norm :: glsl.normalize
+
+dot :: glsl.dot
+cross :: glsl.cross
+
+reflect :: glsl.reflect
+refract :: glsl.refract
+faceforward :: glsl.faceForward
+
+// ----------------------------------------
+// Custom procedures
+// ----------------------------------------
+
+// lensqr ::
+// distsqr
+
+
+// ----------------------------------------
+// Quality of life procedures
+// ----------------------------------------

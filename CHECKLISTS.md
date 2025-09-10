@@ -28,6 +28,7 @@
 [x] `Mat2`
 [x] `Mat3`
 [x] `Mat4`
+[ ] `Quat`
 
 ## Converters
 [ ] `Vec2`
@@ -42,3 +43,12 @@
 [ ] `Mat2`
 [ ] `Mat3`
 [ ] `Mat4`
+[ ] `Quat`
+
+## Common math procedures
+
+## Graphics math procedures commonly used in game programming
+
+## Quality of life procedures: commonly used, but may miss from common vectormath libraries
+
+## Usages from book of math for gamedev
