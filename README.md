@@ -1,4 +1,4 @@
-# VectorMath for Odin
+# VectorMath for Odin Gamedev
 Simple high-level enough, with common/utils procedures, better usages in game programming.
 
 
