@@ -1,5 +1,20 @@
 # Checklists procedures needed to work with game/graphics math
 
+## Data structures
+[x] `Vec2`
+[x] `Vec3`
+[x] `Vec4`
+[x] `IVec2`
+[x] `IVec3`
+[x] `IVec4`
+[x] `UVec2`
+[x] `UVec3`
+[x] `UVec4`
+[x] `Mat2`
+[x] `Mat3`
+[x] `Mat4`
+[ ] `Quat`
+
 ## Constructors
 [x] `Vec2`: use `vec2` procedure
 [x] `Vec3`: use `vec3` procedure
@@ -10,9 +25,9 @@
 [x] `UVec2`
 [x] `UVec3`
 [x] `UVec4`
-[ ] `Mat2`
-[ ] `Mat3`
-[ ] `Mat4`
+[x] `Mat2`
+[x] `Mat3`
+[x] `Mat4`
 
 ## Converters
 [ ] `Vec2`

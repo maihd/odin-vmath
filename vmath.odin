@@ -17,7 +17,7 @@ UVec3 :: [3]u32
 UVec4 :: [4]u32
 
 Mat2 :: matrix[2, 2]f32
-Mat3 :: matrix[2, 2]f32
+Mat3 :: matrix[3, 3]f32
 Mat4 :: matrix[4, 4]f32
 
 // ----------------------------------------
@@ -247,4 +247,86 @@ uvec4 :: proc {
 	uvec4_new1,
 	uvec4_from_uvec2,
 	uvec4_from_uvec3,
+}
+
+@(private, require_results)
+mat2_new :: proc "contextless" (m00, m01, m10, m11: f32) -> Mat2 {
+	return Mat2{m00, m01, m10, m11}
+}
+
+@(private, require_results)
+mat2_new1 :: proc "contextless" (s: f32) -> Mat2 {
+	return Mat2{s, 0, 0, s}
+}
+
+@(private, require_results)
+mat2_new_vec2s :: proc "contextless" (v0, v1: Vec2) -> Mat2 {
+	return Mat2{v0.x, v0.y, v1.x, v1.y}
+}
+
+mat2 :: proc {
+	mat2_new,
+	mat2_new1,
+	mat2_new_vec2s,
+}
+
+@(private, require_results)
+mat3_new :: proc "contextless" (m00, m01, m02, m10, m11, m12, m20, m21, m22: f32) -> Mat3 {
+	return Mat3{m00, m01, m02, m10, m11, m12, m20, m21, m22}
+}
+
+@(private, require_results)
+mat3_new1 :: proc "contextless" (s: f32) -> Mat3 {
+	return Mat3{s, 0, 0, 0, s, 0, 0, 0, s}
+}
+
+@(private, require_results)
+mat3_new_vec3s :: proc "contextless" (v0, v1, v2: Vec3) -> Mat3 {
+	return Mat3{v0.x, v0.y, v0.z, v1.x, v1.y, v1.z, v2.x, v2.y, v2.z}
+}
+
+mat3 :: proc {
+	mat3_new,
+	mat3_new1,
+	mat3_new_vec3s,
+}
+
+@(private, require_results)
+mat4_new :: proc "contextless" (
+	m00, m01, m02, m03, m10, m11, m12, m13, m20, m21, m22, m23, m30, m31, m32, m33: f32,
+) -> Mat4 {
+	return Mat4{m00, m01, m02, m03, m10, m11, m12, m13, m20, m21, m22, m23, m30, m31, m32, m33}
+}
+
+@(private, require_results)
+mat4_new1 :: proc "contextless" (s: f32) -> Mat4 {
+	return Mat4{s, 0, 0, 0, 0, s, 0, 0, 0, 0, s, 0, 0, 0, 0, s}
+}
+
+@(private, require_results)
+mat4_new_vec4s :: proc "contextless" (v0, v1, v2, v3: Vec4) -> Mat4 {
+	return Mat4 {
+		v0.x,
+		v0.y,
+		v0.z,
+		v0.w,
+		v1.x,
+		v1.y,
+		v1.z,
+		v1.w,
+		v2.x,
+		v2.y,
+		v2.z,
+		v2.w,
+		v3.x,
+		v3.y,
+		v3.z,
+		v3.w,
+	}
+}
+
+mat4 :: proc {
+	mat4_new,
+	mat4_new1,
+	mat4_new_vec4s,
 }
