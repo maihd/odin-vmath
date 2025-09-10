@@ -16,7 +16,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
+  linux-unit-tests:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -39,3 +39,28 @@ jobs:
 
       - name: Run Odin unit tests
         run: ./odin-linux-amd64-nightly+2025-09-08/odin test tests
+        
+  # This workflow contains a single job called "build"
+  mac-unit-tests:
+    # The type of runner that the job will run on
+    runs-on: macos-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+
+      - name: Preparing tools
+        run: tar --version && unzip -v && curl --version
+
+      - name: Download odin
+        run: curl -L -O https://github.com/odin-lang/Odin/releases/download/dev-2025-09/odin-macos-arm64-dev-2025-09.zip && unzip odin-macos-arm64-dev-2025-09.zip && tar -xvzf dist.tar.gz
+
+      - name: Checking odin version
+        run: ./odin-macos-arm64-nightly+2025-09-08/odin version
+
+      - name: Show current folder contents
+        run: ls -a
+
+      - name: Run Odin unit tests
+        run: ./odin-macos-arm64-nightly+2025-09-08/odin test tests
