@@ -173,3 +173,78 @@ ivec4 :: proc {
 	ivec4_from_ivec2,
 	ivec4_from_ivec3,
 }
+
+@(private, require_results)
+uvec2_new :: proc "contextless" (x, y: u32) -> UVec2 {
+	return UVec2{x, y}
+}
+
+@(private, require_results)
+uvec2_new1 :: proc "contextless" (s: u32) -> UVec2 {
+	return UVec2{s, s}
+}
+
+@(private, require_results)
+uvec2_from_uvec3 :: proc "contextless" (v: UVec3) -> UVec2 {
+	return UVec2{v.x, v.y}
+}
+
+@(private, require_results)
+uvec2_from_uvec4 :: proc "contextless" (v: UVec4) -> UVec2 {
+	return UVec2{v.x, v.y}
+}
+
+uvec2 :: proc {
+	uvec2_new,
+	uvec2_new1,
+	uvec2_from_uvec3,
+	uvec2_from_uvec4,
+}
+
+@(private, require_results)
+uvec3_new :: proc "contextless" (x, y, z: u32) -> UVec3 {
+	return UVec3{x, y, z}
+}
+
+@(private, require_results)
+uvec3_from_uvec2 :: proc "contextless" (v: UVec2, z: u32) -> UVec3 {
+	return UVec3{v.x, v.y, z}
+}
+
+@(private, require_results)
+uvec3_from_uvec4 :: proc "contextless" (v: UVec4) -> UVec3 {
+	return UVec3{v.x, v.y, v.z}
+}
+
+uvec3 :: proc {
+	uvec3_new,
+	uvec3_from_uvec2,
+	uvec3_from_uvec4,
+}
+
+@(private, require_results)
+uvec4_new :: proc "contextless" (x, y, z, w: u32) -> UVec4 {
+	return UVec4{x, y, z, w}
+}
+
+@(private, require_results)
+uvec4_new1 :: proc "contextless" (s: u32) -> UVec4 {
+	return UVec4{s, s, s, s}
+}
+
+@(private, require_results)
+uvec4_from_uvec2 :: proc "contextless" (v: UVec2, z: u32, w: u32) -> UVec4 {
+	return UVec4{v.x, v.y, z, w}
+}
+
+@(private, require_results)
+uvec4_from_uvec3 :: proc "contextless" (v: UVec3, w: u32) -> UVec4 {
+	return UVec4{v.x, v.y, v.z, w}
+}
+
+uvec4 :: proc {
+	uvec4_new,
+	uvec4_new1,
+	uvec4_from_uvec2,
+	uvec4_from_uvec3,
+}

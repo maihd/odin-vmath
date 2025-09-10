@@ -7,9 +7,9 @@
 [x] `IVec2`
 [x] `IVec3`
 [x] `IVec4`
-[ ] `UVec2`
-[ ] `UVec3`
-[ ] `UVec4`
+[x] `UVec2`
+[x] `UVec3`
+[x] `UVec4`
 [ ] `Mat2`
 [ ] `Mat3`
 [ ] `Mat4`
