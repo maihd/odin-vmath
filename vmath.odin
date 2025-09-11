@@ -4,6 +4,7 @@ import "core:fmt"
 import "core:math"
 import "core:math/linalg"
 import "core:math/linalg/glsl"
+import "core:math/linalg/hlsl"
 
 Vec2 :: [2]f32
 Vec3 :: [3]f32
@@ -347,6 +348,10 @@ max :: glsl.max
 lerp :: glsl.lerp
 clamp :: glsl.clamp
 
+step :: glsl.step
+smoothstep :: glsl.smoothstep
+
+mod :: glsl.mod
 fract :: glsl.fract
 trunc :: glsl.trunc
 
