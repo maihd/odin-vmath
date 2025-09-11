@@ -452,6 +452,92 @@ distsqr :: proc {
 }
 
 // ----------------------------------------
+// Matrix procedures
+// ----------------------------------------
+
+@(private = "file", require_results)
+mat4_translate_2f32 :: proc "contextless" (x, y: f32) -> Mat4 {
+	return glsl.mat4Translate(vec3(x, y, 0))
+}
+
+@(private = "file", require_results)
+mat4_translate_3f32 :: proc "contextless" (x, y, z: f32) -> Mat4 {
+	return glsl.mat4Translate(vec3(x, y, z))
+}
+
+@(private = "file", require_results)
+mat4_translate_vec2 :: proc "contextless" (v: Vec2) -> Mat4 {
+	return glsl.mat4Translate(vec3(v, 0))
+}
+
+mat4_translate :: proc {
+	glsl.mat4Translate,
+	mat4_translate_2f32,
+	mat4_translate_3f32,
+	mat4_translate_vec2,
+}
+
+@(private, require_results)
+mat4_scale_2f32 :: proc "contextless" (x, y: f32) -> Mat4 {
+	return glsl.mat4Scale(vec3(x, y, 1))
+}
+
+@(private, require_results)
+mat4_scale_3f32 :: proc "contextless" (x, y, z: f32) -> Mat4 {
+	return glsl.mat4Scale(vec3(x, y, z))
+}
+
+@(private, require_results)
+mat4_scale_vec2 :: proc "contextless" (v: Vec2) -> Mat4 {
+	return glsl.mat4Scale(vec3(v.x, v.y, 0))
+}
+
+mat4_scale :: proc {
+	glsl.mat4Scale,
+	mat4_scale_2f32,
+	mat4_scale_3f32,
+	mat4_scale_vec2,
+}
+
+mat4_rotate :: glsl.mat4Rotate
+mat4_rotate_x :: proc "contextless" (radians: f32) -> Mat4 {
+	return glsl.mat4Rotate(vec3(1, 0, 0), radians)
+}
+
+mat4_rotate_y :: proc "contextless" (radians: f32) -> Mat4 {
+	return glsl.mat4Rotate(vec3(0, 1, 0), radians)
+}
+
+mat4_rotate_z :: proc "contextless" (radians: f32) -> Mat4 {
+	return glsl.mat4Rotate(vec3(0, 0, 1), radians)
+}
+
+@(require_results)
+mat4_transform2d :: proc "contextless" (position: Vec2, rotation: f32, scale: Vec2) -> Mat4 {
+	return mat4_translate(position) * mat4_rotate_z(rotation) * mat4_scale(scale)
+}
+
+@(require_results)
+mat4_transform :: proc "contextless" (
+	position: Vec3,
+	rotation_angle_axis: Vec4,
+	scale: Vec3,
+) -> Mat4 {
+	return(
+		mat4_translate(position) *
+		mat4_rotate(rotation_angle_axis.xyz, rotation_angle_axis.w) *
+		mat4_scale(scale) \
+	)
+}
+
+mat4_lookat :: glsl.mat4LookAt
+// mat4_frustum :: g
+mat4_ortho :: glsl.mat4Ortho3d
+mat4_orientation :: glsl.mat4Orientation
+mat4_perspective :: glsl.mat4Perspective
+mat4_perspective_infinite :: glsl.mat4PerspectiveInfinite
+
+// ----------------------------------------
 // Quality of life procedures
 // ----------------------------------------
 

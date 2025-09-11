@@ -49,6 +49,22 @@
 
 ## Graphics math procedures commonly used in game programming
 
+## Matrix utilities
+- Focus only for Mat4
+[x] `mat4_lookat`
+[x] `mat4_ortho`
+[x] `mat4_orientation`
+[x] `mat4_perspective`
+[x] `mat4_perspective_infinite`
+[x] `mat4_translate`
+[x] `mat4_scale`
+[x] `mat4_rotate`
+[x] `mat4_rotate_x`
+[x] `mat4_rotate_y`
+[x] `mat4_rotate_z`
+[x] `mat4_transform2d`
+[x] `mat4_transform`
+
 ## Quality of life procedures: commonly used, but may miss from common vectormath libraries
 
 ## Usages from book of math for gamedev
