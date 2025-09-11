@@ -339,6 +339,9 @@ mat4 :: proc {
 exp :: glsl.exp
 exp2 :: glsl.exp2
 
+abs :: glsl.abs
+sign :: glsl.sign
+
 min :: glsl.min
 max :: glsl.max
 lerp :: glsl.lerp
@@ -394,7 +397,62 @@ faceforward :: glsl.faceForward
 // lensqr ::
 // distsqr
 
+@(private = "file", require_results)
+lensqr_f32 :: proc "contextless" (x: f32) -> f32 {
+	return x * x
+}
+
+@(private = "file", require_results)
+lensqr_vec2 :: proc "contextless" (v: Vec2) -> f32 {
+	return v.x * v.x + v.y * v.y
+}
+
+@(private = "file", require_results)
+lensqr_vec3 :: proc "contextless" (v: Vec3) -> f32 {
+	return v.x * v.x + v.y * v.y + v.z * v.z
+}
+
+@(private = "file", require_results)
+lensqr_vec4 :: proc "contextless" (v: Vec4) -> f32 {
+	return v.x * v.x + v.y * v.y + v.z * v.z + v.w * v.w
+}
+
+lensqr :: proc {
+	lensqr_f32,
+	lensqr_vec2,
+	lensqr_vec3,
+	lensqr_vec4,
+}
+
+@(private = "file", require_results)
+distsqr_f32 :: proc "contextless" (a, b: f32) -> f32 {
+	return lensqr(a - b)
+}
+
+@(private = "file", require_results)
+distsqr_vec2 :: proc "contextless" (a, b: Vec2) -> Vec2 {
+	return lensqr(a - b)
+}
+
+@(private = "file", require_results)
+distsqr_vec3 :: proc "contextless" (a, b: Vec3) -> Vec3 {
+	return lensqr(a - b)
+}
+
+@(private = "file", require_results)
+distsqr_vec4 :: proc "contextless" (a, b: Vec4) -> Vec4 {
+	return lensqr(a - b)
+}
+
+distsqr :: proc {
+	distsqr_f32,
+	distsqr_vec2,
+	distsqr_vec3,
+	distsqr_vec4,
+}
 
 // ----------------------------------------
 // Quality of life procedures
 // ----------------------------------------
+
+// tcos :: linalg.cos
