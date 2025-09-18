@@ -4,6 +4,7 @@ import "core:fmt"
 import "core:math"
 import "core:math/linalg"
 import "core:math/linalg/glsl"
+import "core:math/linalg/hlsl"
 
 Vec2 :: [2]f32
 Vec3 :: [3]f32
@@ -339,11 +340,18 @@ mat4 :: proc {
 exp :: glsl.exp
 exp2 :: glsl.exp2
 
+abs :: glsl.abs
+sign :: glsl.sign
+
 min :: glsl.min
 max :: glsl.max
 lerp :: glsl.lerp
 clamp :: glsl.clamp
 
+step :: glsl.step
+smoothstep :: glsl.smoothstep
+
+mod :: glsl.mod
 fract :: glsl.fract
 trunc :: glsl.trunc
 
@@ -394,7 +402,148 @@ faceforward :: glsl.faceForward
 // lensqr ::
 // distsqr
 
+@(private = "file", require_results)
+lensqr_f32 :: proc "contextless" (x: f32) -> f32 {
+	return x * x
+}
+
+@(private = "file", require_results)
+lensqr_vec2 :: proc "contextless" (v: Vec2) -> f32 {
+	return v.x * v.x + v.y * v.y
+}
+
+@(private = "file", require_results)
+lensqr_vec3 :: proc "contextless" (v: Vec3) -> f32 {
+	return v.x * v.x + v.y * v.y + v.z * v.z
+}
+
+@(private = "file", require_results)
+lensqr_vec4 :: proc "contextless" (v: Vec4) -> f32 {
+	return v.x * v.x + v.y * v.y + v.z * v.z + v.w * v.w
+}
+
+lensqr :: proc {
+	lensqr_f32,
+	lensqr_vec2,
+	lensqr_vec3,
+	lensqr_vec4,
+}
+
+@(private = "file", require_results)
+distsqr_f32 :: proc "contextless" (a, b: f32) -> f32 {
+	return lensqr(a - b)
+}
+
+@(private = "file", require_results)
+distsqr_vec2 :: proc "contextless" (a, b: Vec2) -> Vec2 {
+	return lensqr(a - b)
+}
+
+@(private = "file", require_results)
+distsqr_vec3 :: proc "contextless" (a, b: Vec3) -> Vec3 {
+	return lensqr(a - b)
+}
+
+@(private = "file", require_results)
+distsqr_vec4 :: proc "contextless" (a, b: Vec4) -> Vec4 {
+	return lensqr(a - b)
+}
+
+distsqr :: proc {
+	distsqr_f32,
+	distsqr_vec2,
+	distsqr_vec3,
+	distsqr_vec4,
+}
+
+// ----------------------------------------
+// Matrix procedures
+// ----------------------------------------
+
+@(private = "file", require_results)
+mat4_translate_2f32 :: proc "contextless" (x, y: f32) -> Mat4 {
+	return glsl.mat4Translate(vec3(x, y, 0))
+}
+
+@(private = "file", require_results)
+mat4_translate_3f32 :: proc "contextless" (x, y, z: f32) -> Mat4 {
+	return glsl.mat4Translate(vec3(x, y, z))
+}
+
+@(private = "file", require_results)
+mat4_translate_vec2 :: proc "contextless" (v: Vec2) -> Mat4 {
+	return glsl.mat4Translate(vec3(v, 0))
+}
+
+mat4_translate :: proc {
+	glsl.mat4Translate,
+	mat4_translate_2f32,
+	mat4_translate_3f32,
+	mat4_translate_vec2,
+}
+
+@(private, require_results)
+mat4_scale_2f32 :: proc "contextless" (x, y: f32) -> Mat4 {
+	return glsl.mat4Scale(vec3(x, y, 1))
+}
+
+@(private, require_results)
+mat4_scale_3f32 :: proc "contextless" (x, y, z: f32) -> Mat4 {
+	return glsl.mat4Scale(vec3(x, y, z))
+}
+
+@(private, require_results)
+mat4_scale_vec2 :: proc "contextless" (v: Vec2) -> Mat4 {
+	return glsl.mat4Scale(vec3(v.x, v.y, 0))
+}
+
+mat4_scale :: proc {
+	glsl.mat4Scale,
+	mat4_scale_2f32,
+	mat4_scale_3f32,
+	mat4_scale_vec2,
+}
+
+mat4_rotate :: glsl.mat4Rotate
+mat4_rotate_x :: proc "contextless" (radians: f32) -> Mat4 {
+	return glsl.mat4Rotate(vec3(1, 0, 0), radians)
+}
+
+mat4_rotate_y :: proc "contextless" (radians: f32) -> Mat4 {
+	return glsl.mat4Rotate(vec3(0, 1, 0), radians)
+}
+
+mat4_rotate_z :: proc "contextless" (radians: f32) -> Mat4 {
+	return glsl.mat4Rotate(vec3(0, 0, 1), radians)
+}
+
+@(require_results)
+mat4_transform2d :: proc "contextless" (position: Vec2, rotation: f32, scale: Vec2) -> Mat4 {
+	return mat4_translate(position) * mat4_rotate_z(rotation) * mat4_scale(scale)
+}
+
+@(require_results)
+mat4_transform :: proc "contextless" (
+	position: Vec3,
+	rotation_angle_axis: Vec4,
+	scale: Vec3,
+) -> Mat4 {
+	return(
+		mat4_translate(position) *
+		mat4_rotate(rotation_angle_axis.xyz, rotation_angle_axis.w) *
+		mat4_scale(scale) \
+	)
+}
+
+mat4_lookat :: glsl.mat4LookAt
+// mat4_frustum :: g
+mat4_ortho :: glsl.mat4Ortho3d
+mat4_orientation :: glsl.mat4Orientation
+mat4_perspective :: glsl.mat4Perspective
+mat4_perspective_infinite :: glsl.mat4PerspectiveInfinite
 
 // ----------------------------------------
 // Quality of life procedures
 // ----------------------------------------
+
+// tcos :: linalg.cos
