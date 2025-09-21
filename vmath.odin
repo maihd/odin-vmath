@@ -546,4 +546,35 @@ mat4_perspective_infinite :: glsl.mat4PerspectiveInfinite
 // Quality of life procedures
 // ----------------------------------------
 
+TAU :: 6.28318530717958647692528676655900576
+PI :: 3.14159265358979323846264338327950288
+E :: 2.71828182845904523536
+e :: E
+
+F32_EPSILON :: 1e-7
+F64_EPSILON :: 1e-15
+
 // tcos :: linalg.cos
+
+degrees :: glsl.degrees
+radians :: glsl.radians
+
+turns_to_radians :: proc(turns: f32) -> f32 {
+	return 2 * PI * turns
+}
+
+radians_to_turns :: proc(radians: f32) -> f32 {
+	return radians / (2 * PI)
+}
+
+turns_to_degrees :: proc(turns: f32) -> f32 {
+	return turns * 360
+}
+
+degrees_to_turns :: proc(degrees: f32) -> f32 {
+	return degrees / 360
+}
+
+angle :: proc(v: Vec2) -> f32 {
+	return atan2(v.y, v.x)
+}
