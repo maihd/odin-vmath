@@ -559,22 +559,26 @@ F64_EPSILON :: 1e-15
 degrees :: glsl.degrees
 radians :: glsl.radians
 
-turns_to_radians :: proc(turns: f32) -> f32 {
+turns_to_radians :: proc "contextless" (turns: f32) -> f32 {
 	return 2 * PI * turns
 }
 
-radians_to_turns :: proc(radians: f32) -> f32 {
+radians_to_turns :: proc "contextless" (radians: f32) -> f32 {
 	return radians / (2 * PI)
 }
 
-turns_to_degrees :: proc(turns: f32) -> f32 {
+turns_to_degrees :: proc "contextless" (turns: f32) -> f32 {
 	return turns * 360
 }
 
-degrees_to_turns :: proc(degrees: f32) -> f32 {
+degrees_to_turns :: proc "contextless" (degrees: f32) -> f32 {
 	return degrees / 360
 }
 
-angle :: proc(v: Vec2) -> f32 {
+angle :: proc "contextless" (v: Vec2) -> f32 {
 	return atan2(v.y, v.x)
+}
+
+turns :: proc "contextless" (v: Vec2) -> f32 {
+	return radians_to_turns(angle(v))
 }

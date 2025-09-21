@@ -26,16 +26,18 @@ Simple high-level enough, with common/utils procedures, better usages in game pr
 - Constructors for fast create new data and casting data
 - Utils procedures for exact use cases. 
     - Eg. angle() to get angle of vector, transform2d() to calculate transform matrix for 2d game, ...
-- Intuitively, design goals come as features: simple and easy to use, array programming, based on Odin core math library
+- Intuitively, design goals come as features: 
+    - Simple and easy to use, array programming, based on Odin core math library
+    - No need to learn new API
 
 
 ## FAQs
 
 ### Why other math libraries?
-- I have used core:math/linalg (including glsl, hlsl), this may look good from beginning, but you will see its included too many things that not needed, and no usage documents. So I created my self this library for learning, focus on usage purposes only. That how I learn from previous [vector math library](https://github.com/maihd/vectormath.git), its have no usages, only for researching purposes, becoming too much things at time fly.
+- I have used core:math/linalg (including glsl, hlsl), this may look good from beginning, but you will see its included too many things that not needed, and no usage documents. So I created my self this library for learning, focus on usage of the purposes only. That how I learn from previous [vector math library](https://github.com/maihd/vectormath.git), its have no usages, only for researching purposes, becoming too much things as time flies.
 
 ### What procedures, data structures will be supported?
-- Only procedures, datas structures that needed for gamedev. For graphics programming, you will need more procedures, more data structures, use Odin core math libraries. Its' good and performance.
+- Only procedures, data structures that needed for gamedev. For graphics programming, you will need more procedures, more data structures, use Odin core math libraries. Its' good and performance. And the plot is, I just re-export core math procedures, for faster implementations.
 
 ### Some usage, mindset of procedure, data structure are wrong, and Odin offer better features or procedures?
 - I'm still learning, so if you found better approach, use it. 
@@ -47,7 +49,7 @@ Simple high-level enough, with common/utils procedures, better usages in game pr
 - Let do it, copy this file and rename, add or remove as you need. I will do no license on this library.
 
 ### Where are the versions?
-- Based on the design goals, there are no changing the interfaces of library, no change or remove procedures. So this library no need versioning, rolling release be work as will.
+- Based on the design goals, there are no changing the interfaces of library, no change or remove procedures. So this library no need versioning, rolling releases are worked as its' will.
 
 ### Contribution, discussions, suggestion to add more procedures?
 - Please do it, create an issue or pull request will be helped!
