@@ -43,7 +43,10 @@ Simple high-level enough, with common/utils procedures, better usages in game pr
 - I'm still learning, so if you found better approach, use it. 
 
 ### Currently production status?
-- The library focus only how we developer do math in coding, so I focus to design a good interface of it. And we have tmath.h from C standard library. So in the futures, the library only include more procedures, does not change or remove existing procedures. And luckily, Odin core math library have good performance, and included all implementations we need.
+- The library focus only how we developer do math in coding, so I focus to design a good interface of it. And we have tmath.h from C standard library. So in the futures, the library will be only including more procedures, does not change or remove existing procedures. And luckily, Odin core math library have good performance, and included all implementations we need.
+
+### Your talking about good usages of a math library, any showcases?
+- I'm remake neonshooter in Odin and Raylib, I use this library, just copy the vmath.odin file, rename the package, and we dont. And for the futures, I will learn more from [game math book](https://gamemath.com/book/intro.html), I decided to put the source code here, as a showcase and learning progress tracking.
 
 ### I want my own math library, fit my style?
 - Let do it, copy this file and rename, add or remove as you need. I will do no license on this library.
