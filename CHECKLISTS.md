@@ -70,9 +70,12 @@
 [x] `turns`: calculate angle (in turns) of Vec2
 [x] `radians`: convert degrees to radians (old name from GLSL/HLSL)
 [x] `degrees`: convert radians to degrees (old name from GLSL/HLSL)
-[x] `turns_to_radians`: convert turns to radians
-[x] `turns_to_degrees`: convert turns to degrees
-[x] `radians_to_turns`: convert radians to turns
-[x] `degrees_to_turns`: convert degrees to turns
+[x] `turn_to_rad`: convert turns to radians
+[x] `turn_to_deg`: convert turns to degrees
+[x] `rad_to_turn`: convert radians to turns
+[x] `deg_to_turn`: convert degrees to turns
+[x] `vec2_from_rad`: create a new vector 2D from direction's angle (in radians)
+[x] `vec2_from_deg`: create a new vector 2D from direction's angle (in degrees)
+[x] `vec2_from_turn`: create a new vector 2D from direction's angle (in turns)
 
 ## Usages from book of math for gamedev

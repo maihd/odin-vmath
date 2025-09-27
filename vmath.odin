@@ -559,19 +559,19 @@ F64_EPSILON :: 1e-15
 degrees :: glsl.degrees
 radians :: glsl.radians
 
-turns_to_radians :: proc "contextless" (turns: f32) -> f32 {
+turn_to_rad :: proc "contextless" (turns: f32) -> f32 {
 	return 2 * PI * turns
 }
 
-radians_to_turns :: proc "contextless" (radians: f32) -> f32 {
+rad_to_turn :: proc "contextless" (radians: f32) -> f32 {
 	return radians / (2 * PI)
 }
 
-turns_to_degrees :: proc "contextless" (turns: f32) -> f32 {
+turn_to_deg :: proc "contextless" (turns: f32) -> f32 {
 	return turns * 360
 }
 
-degrees_to_turns :: proc "contextless" (degrees: f32) -> f32 {
+deg_to_turn :: proc "contextless" (degrees: f32) -> f32 {
 	return degrees / 360
 }
 
@@ -580,5 +580,18 @@ angle :: proc "contextless" (v: Vec2) -> f32 {
 }
 
 turns :: proc "contextless" (v: Vec2) -> f32 {
-	return radians_to_turns(angle(v))
+	return rad_to_turn(angle(v))
+}
+
+vec2_from_rad :: proc "contextless" (rad: f32, length: f32 = 1.0) -> Vec2 {
+	s, c := math.sincos(rad)
+	return vec2(c, s) * length
+}
+
+vec2_from_deg :: proc "contextless" (deg: f32, length: f32 = 1.0) -> Vec2 {
+	return vec2_from_rad(radians(deg), length)
+}
+
+vec2_from_turn :: proc "contextless" (turn: f32, length: f32 = 1.0) -> Vec2 {
+	return vec2_from_rad(turn_to_rad(turn), length)
 }
