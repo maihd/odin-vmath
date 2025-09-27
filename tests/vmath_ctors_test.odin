@@ -6,10 +6,6 @@ import "core:testing"
 
 @(test)
 vec2_ctor_tests :: proc(t: ^testing.T) {
-	// Below code will not compiled because we force user must
-	// use the results of procedure
-	// vec2(1)
-
 	testing.expect(t, vm.vec2(0, 1) == [2]f32{0, 1})
 	testing.expect(t, vm.vec2(2, 3) == vm.Vec2{2, 3})
 
@@ -55,10 +51,6 @@ vec4_ctor_tests :: proc(t: ^testing.T) {
 
 @(test)
 ivec2_ctor_tests :: proc(t: ^testing.T) {
-	// Below code will not compiled because we force user must
-	// use the results of procedure
-	// vec2(1)
-
 	testing.expect(t, vm.ivec2(0, 1) == [2]i32{0, 1})
 	testing.expect(t, vm.ivec2(2, 3) == vm.IVec2{2, 3})
 
@@ -104,10 +96,6 @@ ivec4_ctor_tests :: proc(t: ^testing.T) {
 
 @(test)
 uvec2_ctor_tests :: proc(t: ^testing.T) {
-	// Below code will not compiled because we force user must
-	// use the results of procedure
-	// vec2(1)
-
 	testing.expect(t, vm.uvec2(0, 1) == [2]u32{0, 1})
 	testing.expect(t, vm.uvec2(2, 3) == vm.UVec2{2, 3})
 

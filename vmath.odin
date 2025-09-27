@@ -59,7 +59,7 @@ vec3_new :: proc "contextless" (x, y, z: f32) -> Vec3 {
 }
 
 @(private, require_results)
-vec3_from_vec2 :: proc "contextless" (v: Vec2, z: f32) -> Vec3 {
+vec3_from_vec2 :: proc "contextless" (#no_broadcast v: Vec2, z: f32 = 0.0) -> Vec3 {
 	return Vec3{v.x, v.y, z}
 }
 
@@ -85,12 +85,12 @@ vec4_new1 :: proc "contextless" (s: f32) -> Vec4 {
 }
 
 @(private, require_results)
-vec4_from_vec2 :: proc "contextless" (v: Vec2, z: f32, w: f32) -> Vec4 {
+vec4_from_vec2 :: proc "contextless" (#no_broadcast v: Vec2, z: f32 = 0.0, w: f32 = 0.0) -> Vec4 {
 	return Vec4{v.x, v.y, z, w}
 }
 
 @(private, require_results)
-vec4_from_vec3 :: proc "contextless" (v: Vec3, w: f32) -> Vec4 {
+vec4_from_vec3 :: proc "contextless" (#no_broadcast v: Vec3, w: f32 = 0.0) -> Vec4 {
 	return Vec4{v.x, v.y, v.z, w}
 }
 
@@ -134,7 +134,7 @@ ivec3_new :: proc "contextless" (x, y, z: i32) -> IVec3 {
 }
 
 @(private, require_results)
-ivec3_from_ivec2 :: proc "contextless" (v: IVec2, z: i32) -> IVec3 {
+ivec3_from_ivec2 :: proc "contextless" (#no_broadcast v: IVec2, z: i32 = 0.0) -> IVec3 {
 	return IVec3{v.x, v.y, z}
 }
 
@@ -160,12 +160,16 @@ ivec4_new1 :: proc "contextless" (s: i32) -> IVec4 {
 }
 
 @(private, require_results)
-ivec4_from_ivec2 :: proc "contextless" (v: IVec2, z: i32, w: i32) -> IVec4 {
+ivec4_from_ivec2 :: proc "contextless" (
+	#no_broadcast v: IVec2,
+	z: i32 = 0.0,
+	w: i32 = 0.0,
+) -> IVec4 {
 	return IVec4{v.x, v.y, z, w}
 }
 
 @(private, require_results)
-ivec4_from_ivec3 :: proc "contextless" (v: IVec3, w: i32) -> IVec4 {
+ivec4_from_ivec3 :: proc "contextless" (#no_broadcast v: IVec3, w: i32 = 0.0) -> IVec4 {
 	return IVec4{v.x, v.y, v.z, w}
 }
 
@@ -209,7 +213,7 @@ uvec3_new :: proc "contextless" (x, y, z: u32) -> UVec3 {
 }
 
 @(private, require_results)
-uvec3_from_uvec2 :: proc "contextless" (v: UVec2, z: u32) -> UVec3 {
+uvec3_from_uvec2 :: proc "contextless" (#no_broadcast v: UVec2, z: u32 = 0.0) -> UVec3 {
 	return UVec3{v.x, v.y, z}
 }
 
@@ -235,12 +239,16 @@ uvec4_new1 :: proc "contextless" (s: u32) -> UVec4 {
 }
 
 @(private, require_results)
-uvec4_from_uvec2 :: proc "contextless" (v: UVec2, z: u32, w: u32) -> UVec4 {
+uvec4_from_uvec2 :: proc "contextless" (
+	#no_broadcast v: UVec2,
+	z: u32 = 0.0,
+	w: u32 = 0.0,
+) -> UVec4 {
 	return UVec4{v.x, v.y, z, w}
 }
 
 @(private, require_results)
-uvec4_from_uvec3 :: proc "contextless" (v: UVec3, w: u32) -> UVec4 {
+uvec4_from_uvec3 :: proc "contextless" (#no_broadcast v: UVec3, w: u32 = 0.0) -> UVec4 {
 	return UVec4{v.x, v.y, v.z, w}
 }
 
