@@ -392,7 +392,7 @@ acosh :: glsl.cosh
 asinh :: glsl.sinh
 atanh :: glsl.tanh
 
-len :: glsl.length
+length :: glsl.length
 dist :: glsl.distance
 norm :: glsl.normalize
 
