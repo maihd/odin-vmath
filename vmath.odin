@@ -373,7 +373,10 @@ log2 :: linalg.log2
 log10 :: linalg.log10
 
 sqrt :: glsl.sqrt
-fsqrt :: glsl.inversesqrt
+rsqrt :: glsl.inversesqrt
+
+fsqrt :: glsl.sqrt
+frsqrt :: glsl.inversesqrt
 
 cos :: glsl.cos
 sin :: glsl.sin

@@ -46,8 +46,53 @@
 [ ] `Quat`
 
 ## Common math procedures
+[x] `exp`
+[x] `exp2`
+[x] `abs`
+[x] `sign`
+[x] `min`
+[x] `max`
+[x] `lerp`
+[x] `clamp`
+[x] `step`
+[x] `smoothstep`
+[x] `mod`
+[x] `fract`
+[x] `trunc`
+[x] `ceil`
+[x] `round`
+[x] `floor`
+[x] `pow`
+[x] `log`
+[x] `log2`
+[x] `log10`
+[x] `sqrt`
+[x] `fsqrt`
+[x] `rsqrt`
+[x] `frsqrt`
+[x] `cos`
+[x] `sin`
+[x] `tan`
+[x] `acos`
+[x] `asin`
+[x] `atan`
+[x] `atan2`
+[x] `cosh`
+[x] `sinh`
+[x] `tanh`
+[x] `acosh`
+[x] `asinh`
+[x] `atanh`
 
 ## Graphics math procedures commonly used in game programming
+[x] `length`
+[x] `dist`
+[x] `norm`
+[x] `dot`
+[x] `cross`
+[x] `reflect`
+[x] `refract`
+[x] `faceforward`
 
 ## Matrix utilities
 - Now focused only for Mat4
